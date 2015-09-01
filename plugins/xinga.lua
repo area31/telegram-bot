@@ -35,7 +35,7 @@ function save_xinga(msg)
 
     serialize_to_file(xingas_table, xingas_file)
 
-    return "done!"
+    return "Xingamento adicionado, seu zuero!!!"
 end
 
 function get_xinga(msg)
