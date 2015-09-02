@@ -61,7 +61,7 @@ return {
     description = "Save mulher",
     description = "Mulher plugin, you can create and retrieve random mulheres",
     usage = {
-        "!addmulher [msg]",
+        "!addmulher [URL]",
         "!mulher",
     },
     patterns = {
