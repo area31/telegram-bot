@@ -34,7 +34,7 @@ local function get_weather(location)
 end
 
 local function run(msg, matches)
-  local city = 'Madrid,ES'
+  local city = 'belohorizonte,br'
 
   if matches[1] ~= '!weather' then 
     city = matches[1]
@@ -47,8 +47,11 @@ local function run(msg, matches)
 end
 
 return {
-  description = "weather in that city (Madrid is default)", 
-  usage = "!weather (city)",
+  description = "weather in that city (Belo Horizonte-MG is default)", 
+  usage = {
+        "!weather [<city>,<country>]",
+        "Ex: !weather saopaulo,br",
+	},
   patterns = {
     "^!weather$",
     "^!weather (.*)$"

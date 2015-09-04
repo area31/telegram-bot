@@ -65,6 +65,6 @@ end
 return {
     description = "Edbot",
     usage = "morfetico <word or phrase>",
-    patterns = { "^morfetico (.*)$" },
+	patterns = { "^[Mm][Oo][Rr][Ff][Ee][Tt][Ii][Cc][Oo] (.*)$" },
     run = run
 }
