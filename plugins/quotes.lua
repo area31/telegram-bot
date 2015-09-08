@@ -8,7 +8,7 @@ function read_quotes_file()
         print ('Created a new quotes file on '..quotes_file)
         serialize_to_file({}, quotes_file)
     else
-        print ('Quotes loaded: '..quotes_file)
+        print ('GNUs loaded: '..quotes_file)
         f:close()
     end
     return loadfile (quotes_file)()
@@ -59,7 +59,7 @@ end
 
 return {
     description = "Save quote",
-    description = "Quote plugin, you can create and retrieve random quotes",
+    description = "GNU plugin, you can create and retrieve random quotes",
     usage = {
         "!addquote [msg]",
         "!quote",

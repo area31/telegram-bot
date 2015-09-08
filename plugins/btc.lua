@@ -19,7 +19,7 @@ local function getBTCX(amount,currency)
 end
 
 local function run(msg, matches)
-  local cur = 'EUR'
+  local cur = 'BRL'
   local amt = nil
 
   -- Get the global match out of the way
@@ -39,7 +39,7 @@ local function run(msg, matches)
 end
 
 return {
-  description = "Bitcoin global average market value (in EUR or USD)", 
+  description = "Bitcoin global average market value (in EUR or USD). Brazilian Real (BRL) is default.", 
   usage = "!btc [EUR|USD] [amount]",
   patterns = {
     "^!btc$",
