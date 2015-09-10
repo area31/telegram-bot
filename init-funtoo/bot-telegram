@@ -1,0 +1,51 @@
+#!/sbin/runscript
+# Distributed under the terms of the GNU General Public License v2
+
+USER="morfetico"
+
+depend() {
+need netif.eth0
+
+
+}
+
+start() {
+ebegin "Iniciando o Bot \"${USER}\""
+su ${USER} -c ~${USER}/telegram-bot/start-funtoo.sh
+
+}
+
+stop() {
+ebegin "Parando o Bot \"${USER}\""
+CHECK=$(pgrep -f 'bash /home/morfetico/telegram-bot/launch.sh'|wc -l)
+if [ "$CHECK" -ne 0 ]; then
+	pgrep -f 'bash /home/morfetico/telegram-bot/launch.sh'|xargs kill
+fi
+
+CHECK2=$(pgrep telegram-cli|wc -l)
+if [ "$CHECK2" -ne 0 ]; then
+	pgrep telegram-cli|xargs kill
+fi
+
+}
+
+status() {
+ebegin "Processo em execução"
+
+echo -e "\nUSER: ${USER}"
+
+CHECK=$(pgrep -f 'bash /home/morfetico/telegram-bot/launch.sh'|wc -l)
+if [ "$CHECK" -ne 0 ]; then
+	echo -e "launch.sh PID: $(pgrep -f 'bash /home/morfetico/telegram-bot/launch.sh')"
+else
+	echo -e "launch.sh NOT running. Please restart bot-telegram"
+fi
+
+CHECK2=$(pgrep telegram-cli|wc -l)
+if [ "$CHECK2" -ne 0 ]; then
+	echo -e "telegram-cli PID: $(pgrep telegram-cli)"
+else
+	echo -e "telegram-cli NOT running. Please restart bot-telegram"
+fi
+echo -e ""
+}
