@@ -13,11 +13,13 @@ local function get_weather(location)
 
   local weather = json:decode(b)
   local city = weather.name
+  local humidity = weather.humidity
   local country = weather.sys.country
-  local temp = 'The temperature in '..city
+  local temp = 'A temperatura atual em '..city
     ..' (' ..country..')'
-    ..' is '..weather.main.temp..'°C'
-  local conditions = 'Current conditions are: '
+    ..' é de '..weather.main.temp..'°C'
+    .. ' e ' ..weather.main.humidity.. '% de umidade relativa do ar.'
+  local conditions = 'Condição atual do tempo: '
     .. weather.weather[1].description
   
   if weather.weather[1].main == 'Clear' then
@@ -36,12 +38,12 @@ end
 local function run(msg, matches)
   local city = 'belohorizonte,br'
 
-  if matches[1] ~= '!weather' then 
+  if matches[1] ~= '!tempo' then 
     city = matches[1]
   end
   local text = get_weather(city)
   if not text then
-    text = 'Can\'t get weather from that city.'
+    text = 'Deu merda pra buscar o tempo pra essa cidade. Faz alguma coisa direito porra! Busca assim: \"!tempo putaquepariu,br\" (sem aspas e sem espaços)'
   end
   return text
 end
@@ -50,11 +52,11 @@ return {
   description = "weather in that city (Belo Horizonte-MG is default)", 
   usage = {
         "!weather [<city>,<country>]",
-        "Ex: !weather saopaulo,br",
+        "Ex: !tempo putaquepariu,br (sem espaços)",
 	},
   patterns = {
-    "^!weather$",
-    "^!weather (.*)$"
+    "^!tempo$",
+    "^!tempo (.*)$"
   }, 
   run = run 
 }
