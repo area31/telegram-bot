@@ -1,0 +1,72 @@
+local quotegnusgnu_file = './data/quotegnusgnu.lua'
+local quotegnusgnu_table
+
+function read_quotegnusgnu_file()
+    local f = io.open(quotegnusgnu_file, "r+")
+
+    if f == nil then
+        print ('Created a new quotegnusgnu file on '..quotegnusgnu_file)
+        serialize_to_file({}, quotegnusgnu_file)
+    else
+        print ('GNUs loaded: '..quotegnusgnu_file)
+        f:close()
+    end
+    return loadfile (quotegnusgnu_file)()
+end
+
+function save_quotegnu(msg)
+    local to_id = tostring(msg.to.id)
+
+    if msg.text:sub(11):isempty() then
+        return "Usage: !addgnu quotegnu"
+    end
+
+    if quotegnusgnu_table == nil then
+        quotegnusgnu_table = {}
+    end
+
+    if quotegnusgnu_table[to_id] == nil then
+        print ('New quotegnu key to_id: '..to_id)
+        quotegnusgnu_table[to_id] = {}
+    end
+
+    local quotegnusgnu = quotegnusgnu_table[to_id]
+    quotegnusgnu[#quotegnusgnu+1] = msg.text:sub(11)
+
+    serialize_to_file(quotegnusgnu_table, quotegnusgnu_file)
+
+    return "done!"
+end
+
+function get_quotegnu(msg)
+    local to_id = tostring(msg.to.id)
+    local quotegnusgnu_phrases
+
+    quotegnusgnu_table = read_quotegnusgnu_file()
+    quotegnusgnu_phrases = quotegnusgnu_table[to_id]
+
+    return quotegnusgnu_phrases[math.random(1,#quotegnusgnu_phrases)]
+end
+
+function run(msg, matches)
+    if string.match(msg.text, "!gnu$") then
+        return get_quotegnu(msg)
+    elseif string.match(msg.text, "!addgnu (.+)$") then
+        quotegnusgnu_table = read_quotegnusgnu_file()
+        return save_quotegnu(msg)
+    end
+end
+
+return {
+    description = "Save quotegnu",
+    description = "GNU plugin, you can create and retrieve random quotegnusgnu",
+    usage = {
+        "!addgnu [msg]",
+        "!gnu",
+    },
+    patterns = {
+        "^!addgnu (.+)$",
+        "^!gnu$",
+    },
+    run = run
+}

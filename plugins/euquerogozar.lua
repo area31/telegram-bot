@@ -7,11 +7,11 @@ local function run(msg, matches)
     text = text:trim()
     text,b = text:gsub('^!+','')
   end
-  return "GNU é o caralho! Dá man init pra ver se tem gnu"
+  return "https://www.youtube.com/watch?v=iqPzlv1K7lo"
 end
 
 return {
   description = "Simplest plugin ever!",
-  patterns = { "^(.*)[Gg][Nn][Uu](.*)$" },
+  patterns = { "^[Ee][Uu] [Qq][Uu][Ee][Rr][Oo] [Gg][Oo][Zz][Aa][Rr](.*)$" },
   run = run 
 }

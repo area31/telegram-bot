@@ -7,13 +7,11 @@ local function run(msg, matches)
     text = text:trim()
     text,b = text:gsub('^!+','')
   end
-  return "vlw barba"
+  return "valeu barba!"
 end
 
 return {
   description = "Simplest plugin ever!",
-  patterns = {
-    "^!boacabelo"
-  }, 
+  patterns = { "^[Bb][Oo][Aa] [Cc][Aa][Bb][Ee][Ll][Oo](.*)$" },
   run = run 
 }

@@ -7,11 +7,13 @@ local function run(msg, matches)
     text = text:trim()
     text,b = text:gsub('^!+','')
   end
-  return "GNU é o caralho! Dá man init pra ver se tem gnu"
+  return "BolsoMITO! Pois o Bolsonaro é um MITO! Só ele pra comer cu de esquerdistas"
 end
 
 return {
   description = "Simplest plugin ever!",
-  patterns = { "^(.*)[Gg][Nn][Uu](.*)$" },
+  patterns = {
+    "^!bolsonaro"
+  }, 
   run = run 
 }
