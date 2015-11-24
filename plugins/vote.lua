@@ -56,26 +56,26 @@ function run(msg, matches)
   if (matches[1] == "ing") then
     if (matches [2] == "reset") then
       clear_votes (tostring(msg.to.id))
-      return "Voting statistics reset.."
+      return "Votos zerados.."
     elseif (matches [2] == "stats") then
       local votes_result = votes_result (tostring(msg.to.id))
       if (votes_result == "") then
-        votes_result = "[No votes registered]\n"
+        votes_result = "[Nenhum voto registrado]\n"
       end
-      return "Voting statistics :\n" .. votes_result
+      return "Votos computados:\n" .. votes_result
     end
   else
     save_vote(tostring(msg.to.id), msg.from.print_name, tostring(tonumber(matches[2])))
-    return "Vote registered : " .. msg.from.print_name .. " " .. tostring(tonumber(matches [2]))
+    return "Voto registrado na urna eletrônica brasileira fraudulenta: " .. msg.from.print_name .. " " .. tostring(tonumber(matches [2]))
   end
 end
 
 return {
-  description = "Plugin for voting in groups.", 
+  description = "Plugin para votação em grupos.", 
   usage = {
-    "!voting reset: Reset all the votes.",
-    "!vote [number]: Cast the vote.",
-    "!voting stats: Shows the statistics of voting."
+    "!voting reset: Limpa todos os votos.",
+    "!vote [numero]: Realiza uma votação.",
+    "!voting stats: Exibe votos computados."
   },
   patterns = {
     "^!vot(ing) (reset)",
