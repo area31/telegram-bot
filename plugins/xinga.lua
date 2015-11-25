@@ -49,7 +49,7 @@ function get_xinga(msg)
 end
 
 function run(msg, matches)
-    if string.match(msg.text, "!xinga$") then
+    if string.match(msg.text, "!xinga(.*)$") then
         return get_xinga(msg)
     elseif string.match(msg.text, "!addxinga (.+)$") then
         xingas_table = read_xingas_file()
@@ -66,7 +66,7 @@ return {
     },
     patterns = {
         "^!addxinga (.+)$",
-        "^!xinga$",
+        "^!xinga(.*)$",
     },
     run = run
 }
