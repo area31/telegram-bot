@@ -67,7 +67,9 @@ return {
     usage = "morfetico <word or phrase>",
     patterns = {
     "^(.*) [Mm][Oo][Rr][Ff][Ee][Tt][Ii][Cc][Oo](.*)$",
-    "^[Mm][Oo][Rr][Ff][Ee][Tt][Ii][Cc][Oo](.*)$"
+    "^[Mm][Oo][Rr][Ff][Ee][Tt][Ii][Cc][Oo](.*)$",
+    "^[!@][Mm]orfetico_bot(.*)$",
+    "^(.*) [!@][Mm]orfetico_bot(.*)$",
     },
     run = run
 }
