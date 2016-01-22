@@ -10,13 +10,13 @@ need netif.eth0
 }
 
 start() {
-ebegin "Iniciando o Bot \"${USER}\""
+ebegin "Iniciando o Bot-Telegram \"${USER}\""
 su ${USER} -c ~${USER}/telegram-bot/start-funtoo.sh
 
 }
 
 stop() {
-ebegin "Parando o Bot \"${USER}\""
+ebegin "Parando o Bot-Telegram \"${USER}\""
 CHECK=$(pgrep -f 'bash /home/morfetico/telegram-bot/launch.sh'|wc -l)
 if [ "$CHECK" -ne 0 ]; then
 	pgrep -f 'bash /home/morfetico/telegram-bot/launch.sh'|xargs kill
