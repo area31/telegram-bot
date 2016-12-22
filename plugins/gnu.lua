@@ -12,6 +12,12 @@ end
 
 return {
   description = "Simplest plugin ever!",
-  patterns = { "^(.*)[Gg][Nn][Uu](.*)$" },
+  patterns = {
+		"^[Gg][Nn][Uu](.*)$",
+		"^(.*) [Gg][Nn][Uu] (.*)$",
+		"^(.*)[Gg][Nn][Uu] (.*)$",
+		"^(.*) [Gg][Nn][Uu]/(.*)$",
+		"[Gg][Nn][Uu]$",
+		},
   run = run 
 }
