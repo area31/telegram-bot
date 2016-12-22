@@ -76,7 +76,7 @@ local function process_google_data(google, receiver, query)
     local data = google.responseData
 
     if not data or not data.results or #data.results == 0 then
-      local text = 'Image not found.'
+      local text = 'Não encontrei porra nenhuma, procura direito seu animal.'
       send_msg(receiver, text, ok_cb, false)
       return false
     end
