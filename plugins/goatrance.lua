@@ -31,7 +31,7 @@ function save_goatrance(msg)
     end
 
     local goatrances = goatrances_table[to_id]
-    goatrances[#goatrances+1] = msg.text:sub(11)
+    goatrances[#goatrances+1] = msg.text:sub(15)
 
     serialize_to_file(goatrances_table, goatrances_file)
 
