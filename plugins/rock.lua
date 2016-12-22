@@ -35,7 +35,7 @@ function save_rock(msg)
 
     serialize_to_file(rocks_table, rocks_file)
 
-    return "som de baile reive adicionado!"
+    return "Rock adicionado, seu virje!"
 end
 
 function get_rock(msg)
