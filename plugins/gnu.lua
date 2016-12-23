@@ -13,10 +13,10 @@ end
 return {
   description = "Simplest plugin ever!",
   patterns = {
-		"%A+gnu%A+",
-		"%A+gnu$",
-		"^gnu%A+",
-		"^gnu$",
+		"%A[Gg][Nn][Uu]%A+",
+		"%A[Gg][Nn][Uu]$",
+		"^[Gg][Nn][Uu]%A+",
+		"^[Gg][Nn][Uu]$",
 		},
   run = run 
 }
